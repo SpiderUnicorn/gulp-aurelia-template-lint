@@ -38,7 +38,14 @@ module.exports =  {
     
             linter
                 .lint(html, Path.normalize("."+pathShort))    
-                .then((errors) => issues = issues.concat(errors))
+                .then((errors) => {
+                    issues = issues.concat(errors)
+                    file.aurelialinter = {
+                        errorCount: errors.length,
+                        success: errors.length,
+                        messages: errors
+                    }
+                })
                 .then(() => {
                     self.push(file);              
                     cb(null, file) });
