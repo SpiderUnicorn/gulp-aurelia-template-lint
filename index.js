@@ -40,10 +40,12 @@ module.exports =  {
                 .lint(html, Path.normalize("."+pathShort))    
                 .then((errors) => {
                     issues = issues.concat(errors)
-                    file.aurelialinter = {
-                        errorCount: errors.length,
-                        success: errors.length,
-                        messages: errors
+                    file.tslint = {
+                        failures: {
+                            errorCount: errors.length,
+                            success: errors.length,
+                            messages: errors
+                        }
                     }
                 })
                 .then(() => {
