@@ -37,7 +37,6 @@ module.exports = function(config, reporter) {
         linter
             .lint(html, Path.normalize("."+pathShort))    
             .then((errors) => {
-                issues = issues.concat(errors)
                 file.htmlhint = {
                     messages: errors.map(error => {
                         return {
