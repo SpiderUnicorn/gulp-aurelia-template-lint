@@ -9,7 +9,7 @@ describe('gulp-aurelia-template-lint', function () {
     var html = "<template><require/></template>"
 
     it('should return exact input', function (done) {
-      var stream = linter();
+      var stream = linter.linter();
       var fakeStream = new PassThrough();
       var fakeFile = new gutil.File({
         contents: fakeStream
